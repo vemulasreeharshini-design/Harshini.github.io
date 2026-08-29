@@ -1,964 +1,434 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YOUR NAME — AI Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@600;700;800&display=swap');
+    <title>Sree Harshini | Computing & Data Science</title>
 
-    :root {
-      --black: #050505;
-      --white: #f4f4ef;
-      --yellow: #eaff00;
-      --pink: #ff55d4;
-      --blue: #625cff;
-      --green: #00ff66;
-    }
+    <link rel="stylesheet" href="css.style">
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: var(--white);
-      color: var(--black);
-      font-family: "Space Mono", monospace;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    ::selection {
-      background: var(--black);
-      color: var(--yellow);
-    }
-
-    /* NAV */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-
-      min-height: 76px;
-      padding: 0 5vw;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      background: var(--white);
-      border-bottom: 4px solid var(--black);
-    }
-
-    .logo {
-      font-weight: 700;
-      font-size: 15px;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 25px;
-    }
-
-    nav a {
-      font-size: 12px;
-      font-weight: 700;
-      padding: 8px;
-    }
-
-    nav a:hover {
-      background: var(--black);
-      color: var(--white);
-    }
-
-    /* HERO */
-    .hero {
-      min-height: calc(100vh - 76px);
-      padding: 8vw 5vw;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-      border-bottom: 4px solid var(--black);
-      background:
-        linear-gradient(
-          135deg,
-          transparent 0 48%,
-          rgba(0,0,0,.04) 48% 50%,
-          transparent 50%
-        );
-    }
-
-    .availability {
-      width: fit-content;
-      border: 3px solid var(--black);
-      padding: 10px 14px;
-      margin-bottom: 35px;
-
-      font-size: 11px;
-      font-weight: 700;
-
-      background: var(--green);
-      box-shadow: 6px 6px 0 var(--black);
-    }
-
-    .hero h1 {
-      max-width: 1200px;
-
-      font-family: "Syne", sans-serif;
-      font-size: clamp(55px, 11vw, 165px);
-      font-weight: 800;
-      line-height: .78;
-      letter-spacing: -8px;
-    }
-
-    .hero h1 .outline {
-      color: var(--blue);
-      -webkit-text-stroke: 3px var(--black);
-    }
-
-    .hero-description {
-      max-width: 650px;
-      margin-top: 50px;
-
-      font-size: 17px;
-      line-height: 1.7;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 15px;
-      margin-top: 35px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-
-      border: 4px solid var(--black);
-      padding: 17px 24px;
-
-      font-weight: 700;
-      font-size: 12px;
-
-      transition: .15s;
-    }
-
-    .btn:hover {
-      transform: translate(-6px, -6px);
-      box-shadow: 7px 7px 0 var(--black);
-    }
-
-    .btn-black {
-      color: var(--white);
-      background: var(--black);
-    }
-
-    .btn-yellow {
-      background: var(--yellow);
-    }
-
-    /* MARQUEE */
-    .marquee {
-      overflow: hidden;
-      white-space: nowrap;
-
-      padding: 16px 0;
-
-      background: var(--yellow);
-      border-bottom: 4px solid var(--black);
-
-      font-family: "Syne", sans-serif;
-      font-size: 24px;
-      font-weight: 800;
-    }
-
-    .marquee-track {
-      display: inline-block;
-      animation: move 18s linear infinite;
-    }
-
-    @keyframes move {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-50%);
-      }
-    }
-
-    /* COMMON */
-    .section {
-      display: grid;
-      grid-template-columns: 110px 1fr;
-
-      border-bottom: 4px solid var(--black);
-    }
-
-    .number {
-      padding: 35px;
-
-      border-right: 4px solid var(--black);
-
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .content {
-      padding: 90px 5vw;
-    }
-
-    .content > h2 {
-      font-family: "Syne", sans-serif;
-      font-size: clamp(50px, 8vw, 110px);
-      line-height: .85;
-      letter-spacing: -4px;
-      margin-bottom: 60px;
-    }
-
-    /* ABOUT */
-    .about-intro {
-      max-width: 1000px;
-
-      font-family: "Syne", sans-serif;
-      font-size: clamp(30px, 4.5vw, 65px);
-      font-weight: 700;
-      line-height: 1.02;
-    }
-
-    .about-copy {
-      max-width: 700px;
-      margin-top: 40px;
-
-      font-size: 15px;
-      line-height: 1.8;
-    }
-
-    .facts {
-      margin-top: 70px;
-
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-
-      border-top: 4px solid var(--black);
-      border-left: 4px solid var(--black);
-    }
-
-    .fact {
-      padding: 25px;
-
-      border-right: 4px solid var(--black);
-      border-bottom: 4px solid var(--black);
-    }
-
-    .fact small {
-      display: block;
-      margin-bottom: 12px;
-      font-size: 10px;
-    }
-
-    .fact strong {
-      font-family: "Syne", sans-serif;
-      font-size: 25px;
-    }
-
-    /* PROJECTS */
-    .projects {
-      border-top: 4px solid var(--black);
-      border-left: 4px solid var(--black);
-    }
-
-    .project {
-      display: grid;
-      grid-template-columns: 80px 1fr 100px;
-
-      min-height: 400px;
-
-      border-right: 4px solid var(--black);
-      border-bottom: 4px solid var(--black);
-
-      transition: .15s;
-    }
-
-    .project:hover {
-      transform: translate(-7px, -7px);
-      box-shadow: 8px 8px 0 var(--black);
-    }
-
-    .project:nth-child(1) {
-      background: var(--blue);
-      color: white;
-    }
-
-    .project:nth-child(2) {
-      background: var(--pink);
-    }
-
-    .project:nth-child(3) {
-      background: var(--yellow);
-    }
-
-    .project-number {
-      padding: 25px;
-      border-right: 4px solid var(--black);
-      font-weight: 700;
-    }
-
-    .project-body {
-      padding: 50px;
-    }
-
-    .project-type {
-      font-size: 10px;
-      font-weight: 700;
-      margin-bottom: 25px;
-    }
-
-    .project h3 {
-      font-family: "Syne", sans-serif;
-      font-size: clamp(55px, 8vw, 110px);
-      line-height: .75;
-      letter-spacing: -5px;
-      margin-bottom: 35px;
-    }
-
-    .project-description {
-      max-width: 550px;
-      line-height: 1.7;
-      font-size: 14px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 30px;
-    }
-
-    .tag {
-      padding: 7px 10px;
-      border: 2px solid currentColor;
-      font-size: 9px;
-      font-weight: 700;
-    }
-
-    .project-arrow {
-      border-left: 4px solid var(--black);
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      font-family: "Syne", sans-serif;
-      font-size: 55px;
-    }
-
-    /* SKILLS */
-    .skills-section {
-      background: var(--black);
-      color: var(--white);
-    }
-
-    .skills-section .number {
-      border-color: var(--white);
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-
-      border-top: 2px solid var(--white);
-      border-left: 2px solid var(--white);
-    }
-
-    .skill {
-      min-height: 250px;
-      padding: 35px;
-
-      border-right: 2px solid var(--white);
-      border-bottom: 2px solid var(--white);
-    }
-
-    .skill-number {
-      color: var(--yellow);
-      font-size: 11px;
-    }
-
-    .skill h3 {
-      margin: 35px 0 15px;
-
-      font-family: "Syne", sans-serif;
-      font-size: 35px;
-    }
-
-    .skill p {
-      color: #aaa;
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    /* BIG STATEMENT */
-    .statement {
-      min-height: 85vh;
-      padding: 10vw 5vw;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-      background: var(--yellow);
-      border-bottom: 4px solid var(--black);
-    }
-
-    .statement-label {
-      font-weight: 700;
-      font-size: 12px;
-    }
-
-    .statement h2 {
-      margin: 45px 0;
-
-      font-family: "Syne", sans-serif;
-      font-size: clamp(75px, 15vw, 220px);
-      line-height: .72;
-      letter-spacing: -10px;
-    }
-
-    .statement h2 span {
-      color: white;
-      -webkit-text-stroke: 4px var(--black);
-    }
-
-    .statement-bottom {
-      align-self: flex-end;
-      font-weight: 700;
-    }
-
-    /* CONTACT */
-    .contact {
-      background: var(--pink);
-    }
-
-    .contact h2 {
-      font-family: "Syne", sans-serif;
-      font-size: clamp(65px, 12vw, 170px);
-      line-height: .72;
-      letter-spacing: -7px;
-    }
-
-    .contact h2 span {
-      color: white;
-      -webkit-text-stroke: 3px var(--black);
-    }
-
-    .email {
-      display: inline-block;
-
-      margin-top: 60px;
-      padding-bottom: 8px;
-
-      border-bottom: 5px solid var(--black);
-
-      font-family: "Syne", sans-serif;
-      font-size: clamp(20px, 3vw, 40px);
-      font-weight: 700;
-    }
-
-    .socials {
-      display: flex;
-      gap: 12px;
-      margin-top: 60px;
-      flex-wrap: wrap;
-    }
-
-    .social {
-      padding: 12px 18px;
-      border: 3px solid var(--black);
-
-      font-size: 10px;
-      font-weight: 700;
-    }
-
-    .social:hover {
-      background: var(--black);
-      color: white;
-    }
-
-    /* FOOTER */
-    footer {
-      padding: 25px 5vw;
-
-      display: flex;
-      justify-content: space-between;
-
-      background: var(--black);
-      color: var(--white);
-
-      font-size: 9px;
-    }
-
-    /* MOBILE */
-    @media (max-width: 768px) {
-
-      nav {
-        min-height: auto;
-        padding: 16px 5vw;
-
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-      }
-
-      nav ul {
-        gap: 5px;
-        flex-wrap: wrap;
-      }
-
-      .hero {
-        padding: 70px 5vw;
-      }
-
-      .hero h1 {
-        font-size: 17vw;
-        letter-spacing: -4px;
-      }
-
-      .hero-description {
-        font-size: 14px;
-      }
-
-      .section {
-        display: block;
-      }
-
-      .number {
-        padding: 18px 5vw;
-        border-right: 0;
-        border-bottom: 4px solid var(--black);
-      }
-
-      .content {
-        padding: 60px 5vw;
-      }
-
-      .facts {
-        grid-template-columns: 1fr;
-      }
-
-      .project {
-        grid-template-columns: 45px 1fr;
-      }
-
-      .project-number {
-        padding: 20px 10px;
-      }
-
-      .project-body {
-        padding: 35px 25px;
-      }
-
-      .project-arrow {
-        display: none;
-      }
-
-      .project h3 {
-        font-size: 17vw;
-      }
-
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .statement h2 {
-        font-size: 20vw;
-        letter-spacing: -4px;
-      }
-
-      .contact h2 {
-        font-size: 19vw;
-        letter-spacing: -4px;
-      }
-
-      footer {
-        flex-direction: column;
-        gap: 10px;
-      }
-    }
-  </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
-  <nav>
-    <div class="logo">[ YOUR.NAME / AI ]</div>
+    <!-- ================= NAVIGATION ================= -->
 
-    <ul>
-      <li><a href="#about">ABOUT</a></li>
-      <li><a href="#work">WORK</a></li>
-      <li><a href="#skills">SKILLS</a></li>
-      <li><a href="#contact">CONTACT</a></li>
-    </ul>
-  </nav>
+    <header class="navbar">
 
-
-  <!-- HERO -->
-  <header class="hero">
-
-    <div class="availability">
-      ● AVAILABLE FOR AI PROJECTS
-    </div>
-
-    <h1>
-      I BUILD<br>
-      <span class="outline">AI</span><br>
-      EXPERIENCES.
-    </h1>
-
-    <p class="hero-description">
-      I'm an AI developer and creative technologist building
-      intelligent products, experimental interfaces and useful
-      digital experiences.
-    </p>
-
-    <div class="hero-actions">
-      <a href="#work" class="btn btn-black">
-        VIEW MY WORK →
-      </a>
-
-      <a href="#contact" class="btn btn-yellow">
-        CONTACT ME
-      </a>
-    </div>
-
-  </header>
-
-
-  <!-- MARQUEE -->
-  <div class="marquee">
-    <div class="marquee-track">
-      ARTIFICIAL INTELLIGENCE ★ GENERATIVE AI ★ MACHINE LEARNING ★
-      CREATIVE TECHNOLOGY ★ AI AGENTS ★ AUTOMATION ★
-      ARTIFICIAL INTELLIGENCE ★ GENERATIVE AI ★ MACHINE LEARNING ★
-      CREATIVE TECHNOLOGY ★ AI AGENTS ★ AUTOMATION ★
-    </div>
-  </div>
-
-
-  <!-- ABOUT -->
-  <section class="section" id="about">
-
-    <div class="number">01</div>
-
-    <div class="content">
-
-      <h2>ABOUT<br>ME.</h2>
-
-      <p class="about-intro">
-        I TURN COMPLEX AI TECHNOLOGY INTO
-        SIMPLE, USEFUL AND MEMORABLE
-        DIGITAL EXPERIENCES.
-      </p>
-
-      <p class="about-copy">
-        I work at the intersection of artificial intelligence,
-        development and design. I enjoy experimenting with
-        LLMs, generative AI, automation and modern web
-        technologies to create products that solve real problems.
-      </p>
-
-      <div class="facts">
-
-        <div class="fact">
-          <small>LOCATION</small>
-          <strong>INDIA</strong>
+        <div class="logo">
+            [ SREE.HARSHINI / AI ]
         </div>
 
-        <div class="fact">
-          <small>FOCUS</small>
-          <strong>AI + WEB</strong>
-        </div>
+        <nav>
+            <a href="#about">ABOUT</a>
+            <a href="#education">EDUCATION</a>
+            <a href="#skills">SKILLS</a>
+            <a href="#projects">PROJECTS</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
 
-        <div class="fact">
-          <small>STATUS</small>
-          <strong>OPEN</strong>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
+    </header>
 
 
-  <!-- WORK -->
-  <section class="section" id="work">
+    <!-- ================= HERO ================= -->
 
-    <div class="number">02</div>
+    <main>
 
-    <div class="content">
+        <section class="hero">
 
-      <h2>SELECTED<br>WORK.</h2>
+            <div class="hero-content">
 
-      <div class="projects">
+                <div class="availability">
+                    <span>●</span>
+                    AVAILABLE FOR AI PROJECTS
+                </div>
 
-        <!-- PROJECT 01 -->
-        <article class="project">
+                <p class="small-label">
+                    COMPUTING & DATA SCIENCE
+                </p>
 
-          <div class="project-number">01</div>
+                <h1>
+                    SREE<br>
+                    HARSHINI
+                </h1>
 
-          <div class="project-body">
+                <div class="hero-description">
+                    <p>
+                        Computing & Data Science student with a strong interest
+                        in Artificial Intelligence, Data Analytics and Cyber Security.
+                    </p>
+                </div>
 
-            <div class="project-type">
-              AI PRODUCT
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn primary-btn">
+                        VIEW PROJECTS →
+                    </a>
+
+                    <a href="resume.pdf" download class="btn secondary-btn">
+                        DOWNLOAD RESUME ↓
+                    </a>
+                </div>
+
             </div>
 
-            <h3>
-              NEURAL<br>
-              DESK
-            </h3>
+            <div class="hero-side">
 
-            <p class="project-description">
-              An AI-powered workspace that helps teams
-              search, organize and understand their
-              internal knowledge.
-            </p>
+                <div class="vertical-text">
+                    STUDENT • DATA • AI • SECURITY
+                </div>
 
-            <div class="tags">
-              <span class="tag">LLM</span>
-              <span class="tag">RAG</span>
-              <span class="tag">REACT</span>
-              <span class="tag">API</span>
+                <div class="hero-box">
+                    <span>01</span>
+                    <p>
+                        COMPUTING<br>
+                        DATA SCIENCE<br>
+                        CYBER SECURITY
+                    </p>
+                </div>
+
             </div>
 
-          </div>
-
-          <div class="project-arrow">↗</div>
-
-        </article>
+        </section>
 
 
-        <!-- PROJECT 02 -->
-        <article class="project">
+        <!-- ================= ABOUT ================= -->
 
-          <div class="project-number">02</div>
+        <section id="about" class="section">
 
-          <div class="project-body">
-
-            <div class="project-type">
-              GENERATIVE AI
+            <div class="section-number">
+                01 / ABOUT
             </div>
 
-            <h3>
-              PIXEL<br>
-              MACHINE
-            </h3>
+            <div class="section-content">
 
-            <p class="project-description">
-              A generative AI experiment that turns
-              simple text ideas into visual concepts
-              for creative teams.
-            </p>
+                <h2>
+                    Building ideas<br>
+                    through <span>technology.</span>
+                </h2>
 
-            <div class="tags">
-              <span class="tag">GEN AI</span>
-              <span class="tag">PYTHON</span>
-              <span class="tag">PROMPTS</span>
-              <span class="tag">UI</span>
+                <p class="large-text">
+                    I am <strong>Sree Harshini</strong>, a student pursuing
+                    Computing and Data Science at <strong>Sai University</strong>,
+                    with a minor specialization in <strong>Cyber Security</strong>.
+                </p>
+
+                <p>
+                    I am interested in using technology and data to solve
+                    real-world problems. My areas of interest include data
+                    analysis, artificial intelligence, machine learning,
+                    programming and cyber security.
+                </p>
+
+                <p>
+                    I am continuously developing my technical and analytical
+                    skills through academic projects, practical learning and
+                    experimentation with new technologies.
+                </p>
+
             </div>
 
-          </div>
-
-          <div class="project-arrow">↗</div>
-
-        </article>
+        </section>
 
 
-        <!-- PROJECT 03 -->
-        <article class="project">
+        <!-- ================= EDUCATION ================= -->
 
-          <div class="project-number">03</div>
+        <section id="education" class="section dark-section">
 
-          <div class="project-body">
-
-            <div class="project-type">
-              AUTOMATION
+            <div class="section-number">
+                02 / EDUCATION
             </div>
 
-            <h3>
-              BOT<br>
-              FACTORY
-            </h3>
+            <div class="section-content">
 
-            <p class="project-description">
-              Intelligent workflow automation that
-              removes repetitive tasks and gives teams
-              more time to focus on meaningful work.
-            </p>
+                <h2>Education</h2>
 
-            <div class="tags">
-              <span class="tag">PYTHON</span>
-              <span class="tag">AI AGENTS</span>
-              <span class="tag">AUTOMATION</span>
+                <div class="education-card">
+
+                    <div class="education-year">
+                        2024 — PRESENT
+                    </div>
+
+                    <div>
+                        <h3>
+                            Computing and Data Science
+                        </h3>
+
+                        <p>
+                            Sai University
+                        </p>
+
+                        <span>
+                            Minor: Cyber Security
+                        </span>
+                    </div>
+
+                </div>
+
             </div>
 
-          </div>
-
-          <div class="project-arrow">↗</div>
-
-        </article>
-
-      </div>
-
-    </div>
-  </section>
+        </section>
 
 
-  <!-- SKILLS -->
-  <section class="section skills-section" id="skills">
+        <!-- ================= SKILLS ================= -->
 
-    <div class="number">03</div>
+        <section id="skills" class="section">
 
-    <div class="content">
+            <div class="section-number">
+                03 / SKILLS
+            </div>
 
-      <h2>MY<br>TOOLBOX.</h2>
+            <div class="section-content">
 
-      <div class="skills-grid">
+                <h2>
+                    Technical<br>
+                    <span>toolkit.</span>
+                </h2>
 
-        <div class="skill">
-          <div class="skill-number">01 / AI</div>
+                <div class="skills-grid">
 
-          <h3>ARTIFICIAL<br>INTELLIGENCE</h3>
+                    <div class="skill-card">
+                        <span>01</span>
+                        <h3>Programming</h3>
+                        <p>
+                            Python<br>
+                            HTML<br>
+                            CSS<br>
+                            JavaScript
+                        </p>
+                    </div>
 
-          <p>
-            LLMs, Generative AI, RAG, AI agents,
-            prompt engineering and intelligent systems.
-          </p>
+                    <div class="skill-card">
+                        <span>02</span>
+                        <h3>Data Science</h3>
+                        <p>
+                            Data Analysis<br>
+                            Data Visualization<br>
+                            Statistics<br>
+                            Machine Learning
+                        </p>
+                    </div>
+
+                    <div class="skill-card">
+                        <span>03</span>
+                        <h3>Cyber Security</h3>
+                        <p>
+                            Security Fundamentals<br>
+                            Network Security<br>
+                            Cyber Awareness<br>
+                            Threat Analysis
+                        </p>
+                    </div>
+
+                    <div class="skill-card">
+                        <span>04</span>
+                        <h3>Tools</h3>
+                        <p>
+                            Git & GitHub<br>
+                            VS Code<br>
+                            Jupyter Notebook<br>
+                            Microsoft Office
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PROJECTS ================= -->
+
+        <section id="projects" class="section dark-section">
+
+            <div class="section-number">
+                04 / PROJECTS
+            </div>
+
+            <div class="section-content">
+
+                <h2>
+                    Selected<br>
+                    <span>projects.</span>
+                </h2>
+
+                <div class="projects-list">
+
+                    <article class="project">
+
+                        <div class="project-number">
+                            01
+                        </div>
+
+                        <div class="project-info">
+                            <h3>Data Analysis Project</h3>
+
+                            <p>
+                                An academic data science project focused on
+                                exploring, cleaning and analyzing datasets
+                                to discover useful patterns and insights.
+                            </p>
+
+                            <div class="tags">
+                                <span>PYTHON</span>
+                                <span>DATA SCIENCE</span>
+                                <span>ANALYSIS</span>
+                            </div>
+                        </div>
+
+                    </article>
+
+
+                    <article class="project">
+
+                        <div class="project-number">
+                            02
+                        </div>
+
+                        <div class="project-info">
+                            <h3>AI / Machine Learning Project</h3>
+
+                            <p>
+                                A machine learning project designed to explore
+                                predictive models and understand how artificial
+                                intelligence can be applied to real-world data.
+                            </p>
+
+                            <div class="tags">
+                                <span>PYTHON</span>
+                                <span>ML</span>
+                                <span>AI</span>
+                            </div>
+                        </div>
+
+                    </article>
+
+
+                    <article class="project">
+
+                        <div class="project-number">
+                            03
+                        </div>
+
+                        <div class="project-info">
+                            <h3>Cyber Security Project</h3>
+
+                            <p>
+                                A security-focused project exploring basic
+                                cyber security concepts, threats, vulnerabilities
+                                and safe digital practices.
+                            </p>
+
+                            <div class="tags">
+                                <span>SECURITY</span>
+                                <span>NETWORKING</span>
+                                <span>CYBER</span>
+                            </div>
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= RESUME ================= -->
+
+        <section class="resume-section">
+
+            <div>
+
+                <p class="small-label">
+                    CURRICULUM VITAE
+                </p>
+
+                <h2>
+                    Want to know<br>
+                    more about me?
+                </h2>
+
+            </div>
+
+            <a href="resume.pdf" download class="resume-button">
+                DOWNLOAD RESUME
+                <span>↓</span>
+            </a>
+
+        </section>
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <section id="contact" class="section contact-section">
+
+            <div class="section-number">
+                05 / CONTACT
+            </div>
+
+            <div class="section-content">
+
+                <p class="small-label">
+                    LET'S CONNECT
+                </p>
+
+                <h2>
+                    Let's build<br>
+                    something <span>useful.</span>
+                </h2>
+
+                <p class="contact-text">
+                    I am open to learning opportunities, projects,
+                    collaborations and conversations around technology,
+                    data science, AI and cyber security.
+                </p>
+
+                <div class="contact-links">
+
+                    <!-- Replace these with your actual links -->
+
+                    <a href="mailto:your.email@example.com">
+                        EMAIL ↗
+                    </a>
+
+                    <a href="https://github.com/yourusername" target="_blank">
+                        GITHUB ↗
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/yourusername/" target="_blank">
+                        LINKEDIN ↗
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div>
+            © 2026 SREE HARSHINI
         </div>
 
-
-        <div class="skill">
-          <div class="skill-number">02 / CODE</div>
-
-          <h3>DEVELOPMENT</h3>
-
-          <p>
-            HTML, CSS, JavaScript, React, Python,
-            APIs and modern web applications.
-          </p>
+        <div>
+            COMPUTING × DATA × SECURITY
         </div>
 
+    </footer>
 
-        <div class="skill">
-          <div class="skill-number">03 / DESIGN</div>
-
-          <h3>CREATIVE<br>TECH</h3>
-
-          <p>
-            UI/UX, prototyping, interaction design,
-            visual systems and experimental interfaces.
-          </p>
-        </div>
-
-
-        <div class="skill">
-          <div class="skill-number">04 / AUTO</div>
-
-          <h3>AUTOMATION</h3>
-
-          <p>
-            AI workflows, integrations, data processing
-            and repetitive task automation.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- STATEMENT -->
-  <section class="statement">
-
-    <p class="statement-label">
-      THE AI ERA IS HERE.
-    </p>
-
-    <h2>
-      BUILD<br>
-      <span>WEIRD.</span><br>
-      USEFUL.
-    </h2>
-
-    <p class="statement-bottom">
-      DON'T JUST FOLLOW THE FUTURE. BUILD IT.
-    </p>
-
-  </section>
-
-
-  <!-- CONTACT -->
-  <section class="section contact" id="contact">
-
-    <div class="number">04</div>
-
-    <div class="content">
-
-      <p style="font-size:12px;font-weight:700;">
-        HAVE AN IDEA?
-      </p>
-
-      <h2>
-        LET'S MAKE<br>
-        SOMETHING<br>
-        <span>SMART.</span>
-      </h2>
-
-      <a class="email" href="mailto:hello@example.com">
-        HELLO@EXAMPLE.COM →
-      </a>
-
-      <div class="socials">
-
-        <a class="social" href="#">
-          GITHUB
-        </a>
-
-        <a class="social" href="#">
-          LINKEDIN
-        </a>
-
-        <a class="social" href="#">
-          X / TWITTER
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- FOOTER -->
-  <footer>
-    <span>© 2026 YOUR NAME</span>
-    <span>AI / DESIGN / CODE</span>
-    <span>BUILT WITH HTML + CSS</span>
-  </footer>
 
 </body>
 </html>
